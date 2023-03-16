@@ -40,28 +40,8 @@ const Dashboard = () => {
       totalAmount += item.totalPrice;
     });
 
-  const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
-    datasets: [
-      {
-        label: "TOTAL AMOUNT",
-        backgroundColor: ["tomato"],
-        hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, totalAmount],
-      },
-    ],
-  };
 
-  const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
-    datasets: [
-      {
-        backgroundColor: ["#00A6B4", "#6800B4"],
-        hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [outOfStock, products.length - outOfStock],
-      },
-    ],
-  };
+ 
 
   return (
     <div className="dashboard">
@@ -80,15 +60,15 @@ const Dashboard = () => {
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
               <p>Product</p>
-              <p>{products && products.length}</p>
+                {products?(<p> {products.length} </p>):(<p> 0 </p>)}
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>
-              <p>{orders && orders.length}</p>
+                {orders?(<p> {orders.length} </p>):(<p> 0 </p>)}
             </Link>
             <Link to="/admin/users">
               <p>Users</p>
-              <p>{users && users.length}</p>
+                {users?(<p> {users.length} </p>):(<p> 0 </p>)}
             </Link>
           </div>
         </div>
